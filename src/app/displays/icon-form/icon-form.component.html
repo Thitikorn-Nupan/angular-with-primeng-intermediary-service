@@ -1,0 +1,19 @@
+<dynamic-icon-form
+  [formTitle]=" formTitle"
+  [formGroup]=" formGroup"
+  [dynamicIconForms]=" dynamicIconForms"
+  (getFormGroup)=" setInitialFormGroup($event)"
+  (submitEvent)=" setSubmitEventFormGroup()"
+  (clearEvent)=" setClearEventFormGroup()">
+</dynamic-icon-form>
+<br/>
+<!--
+    The @for repeatedly renders content of a block for each item in a collection.
+    The collection can be represented as any JavaScript iterable
+    but there are performance advantages of using a regular Array
+-->
+<ng-container *ngIf=" displayResultFormGroup">
+  @for (message of  resultFormGroup(); track message) {
+    <p-message [severity]="message.severity" [text]="message.content" variant="simple" />
+  }
+</ng-container>

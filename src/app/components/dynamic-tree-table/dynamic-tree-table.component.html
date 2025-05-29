@@ -1,0 +1,46 @@
+<p-card [header]="tableTitle">
+
+  <p-treetable #treeTable
+               [attr.id]="id"
+               [columns]="headerColumns"
+               [value]="data"
+               [scrollable]="scrollable"
+               [loading]="false"
+               [paginator]="paginator"
+               [rows]="rowsScope"
+               [tableStyle]="{'padding':'10px' , 'max-width':'800px'}">
+
+    <!-- header table -->
+    <ng-template pTemplate="header" let-columns>
+      <tr>
+        <ng-container *ngFor="let colum of columns; let i = index; let last = last">
+          <!-- last it means get last value element -->
+          <th
+            [ttSortableColumn]="colum.field"> <!-- as action sort -->
+            {{ colum.header }}
+            <p-treeTableSortIcon *ngIf="!last" [field]="colum.field"/> <!-- as icon sortable -->
+          </th>
+        </ng-container>
+      </tr>
+    </ng-template>
+
+    <!-- body table all the vars it's default no need to modify if you wanna change do in on ts. file-->
+    <ng-template pTemplate="body" let-rowNode let-rowData="rowData" let-columns="columns">
+      <tr [ttRow]="rowNode">
+        <ng-container *ngFor="let col of columns; let i = index; let last = last">
+          <td>
+            <p-treetable-toggler *ngIf="!last && i == 0" [rowNode]="rowNode"/> <!-- as icon -->
+            {{ rowData[col.field] }} <!-- as data each column -->
+            <ng-container *ngIf="last">
+              <!-- if current colum.filed is 'action' key add this container -->
+              <p-button icon="pi pi-wrench" rounded="false" severity="warn" (onClick)="getEditEventTreeTable(rowData)"/>
+              <p-button icon="pi pi-minus" rounded="false" severity="danger" (onClick)="getRemoveEventTreeTable(rowData)"/>
+            </ng-container>
+          </td>
+        </ng-container>
+      </tr>
+    </ng-template>
+
+  </p-treetable>
+
+</p-card>

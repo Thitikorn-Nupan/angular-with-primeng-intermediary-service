@@ -1,0 +1,17 @@
+<dynamic-icon-form-key-filter
+  [formTitle]="formTitle"
+  [formGroup]="formGroup"
+  [dynamicIconFormsKeyFilter]=" dynamicIconFormsKeyFilter"
+  (getFormGroup)=" setInitialFormGroup($event)"
+  (submitEvent)=" setSubmitEventFormGroup()"
+  (clearEvent)=" setClearEventFormGroup()">
+</dynamic-icon-form-key-filter>
+
+<ng-container *ngIf=" displayResultFormGroup">
+  <!--@for (message of DISPLAY_DYNAMIC_ICON_FORM_GROUP.resultFormGroup(); track message) {
+    <p-message [severity]="message.severity" [text]="message.content" variant="simple" />
+  }-->
+  <ng-container *ngFor="let message of  resultFormGroup()">
+    <p-message [severity]="message.severity" [text]="message.content" variant="simple"/>
+  </ng-container>
+</ng-container>

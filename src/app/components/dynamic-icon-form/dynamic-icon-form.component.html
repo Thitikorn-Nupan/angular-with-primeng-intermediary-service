@@ -1,0 +1,135 @@
+<p-card [header]="formTitle" [formGroup]="formGroup" [style]="{'padding':'10px' , 'max-width':'800px'}">
+  <div class="container">
+
+    <div class="field-row">
+      <ng-container *ngFor="let dynamicIconForm of dynamicIconForms">
+        <!--
+          at p-inputgroup have to component
+          1. icon
+          2. input field
+        -->
+
+        <p-inputgroup>
+
+          <!-- **************** icon **************** -->
+          <ng-container *ngIf="dynamicIconForm.isIconExist !== null"> <!-- if not null -->
+
+            <!-- if true case icon exist -->
+            <ng-container *ngIf="dynamicIconForm.isIconExist">
+              <p-inputgroup-addon>
+                <i [attr.class]="dynamicIconForm.icon"></i>
+              </p-inputgroup-addon>
+            </ng-container>
+
+            <!-- if false case icon didn't exist-->
+            <ng-container *ngIf="!dynamicIconForm.isIconExist">
+              <p-inputgroup-addon>
+                {{ dynamicIconForm.icon }}
+              </p-inputgroup-addon>
+            </ng-container>
+
+          </ng-container>
+          <!-- **************** icon **************** -->
+
+          <!-- **************** input **************** -->
+          <ng-container>
+
+            <!-- case number as integer -->
+            <ng-container *ngIf="dynamicIconForm.isNumber && dynamicIconForm.isCurrency === null && dynamicIconForm.isDecimal === null && dynamicIconForm.isTextarea === null && dynamicIconForm.isDropdown === null  && dynamicIconForm.isCheckbox === null && dynamicIconForm.isRadio === null">
+              <p-inputnumber
+                [placeholder]="dynamicIconForm.placeholder!"
+                [formControlName]="dynamicIconForm.formControlName!"
+                [attr.id]="dynamicIconForm.id">
+              </p-inputnumber>
+            </ng-container>
+
+            <!-- case number as float and currency  -->
+            <ng-container *ngIf="dynamicIconForm.isNumber === null && dynamicIconForm.isCurrency && dynamicIconForm.isDecimal === null && dynamicIconForm.isTextarea === null  && dynamicIconForm.isDropdown === null && dynamicIconForm.isCheckbox === null && dynamicIconForm.isRadio === null">
+              <p-inputnumber
+                [placeholder]="dynamicIconForm.placeholder!"
+                [formControlName]="dynamicIconForm.formControlName!"
+                [attr.id]="dynamicIconForm.id"
+                mode="currency"
+                currency="THB">
+              </p-inputnumber>
+            </ng-container>
+
+            <!-- case number as float -->
+            <ng-container *ngIf="dynamicIconForm.isNumber === null && dynamicIconForm.isCurrency === null && dynamicIconForm.isDecimal && dynamicIconForm.isTextarea === null && dynamicIconForm.isDropdown === null  && dynamicIconForm.isCheckbox === null && dynamicIconForm.isRadio === null">
+              <p-inputnumber
+                [placeholder]="dynamicIconForm.placeholder!"
+                [formControlName]="dynamicIconForm.formControlName!"
+                [attr.id]="dynamicIconForm.id"
+                mode="decimal"
+                [minFractionDigits]="1"
+                [maxFractionDigits]="3">
+              </p-inputnumber>
+            </ng-container>
+
+            <!-- case string -->
+            <ng-container *ngIf="dynamicIconForm.isNumber === null && dynamicIconForm.isCurrency === null && dynamicIconForm.isDecimal === null && dynamicIconForm.isTextarea === null && dynamicIconForm.isDropdown === null && dynamicIconForm.isCheckbox === null && dynamicIconForm.isRadio === null">
+              <input
+                pInputText
+                [placeholder]="dynamicIconForm.placeholder!"
+                [formControlName]="dynamicIconForm.formControlName!"
+                [attr.id]="dynamicIconForm.id"
+                [attr.type]="dynamicIconForm.type"
+              />
+            </ng-container>
+
+            <!-- case textarea -->
+            <ng-container *ngIf="dynamicIconForm.isNumber === null && dynamicIconForm.isCurrency === null && dynamicIconForm.isDecimal === null && dynamicIconForm.isTextarea && dynamicIconForm.isDropdown === null && dynamicIconForm.isCheckbox === null && dynamicIconForm.isRadio === null">
+             <textarea
+               pTextarea
+               [placeholder]="dynamicIconForm.placeholder!"
+               [formControlName]="dynamicIconForm.formControlName!"
+               [attr.id]="dynamicIconForm.id"
+               rows="5">
+             </textarea>
+            </ng-container>
+
+            <!-- case dropdown -->
+            <ng-container *ngIf="dynamicIconForm.isNumber === null && dynamicIconForm.isCurrency === null && dynamicIconForm.isDecimal === null && dynamicIconForm.isTextarea === null && dynamicIconForm.isDropdown && dynamicIconForm.isCheckbox === null && dynamicIconForm.isRadio === null">
+              <p-select
+                [placeholder]="dynamicIconForm.placeholder!"
+                [formControlName]="dynamicIconForm.formControlName!"
+                [attr.id]="dynamicIconForm.id"
+                [options]="dynamicIconForm.isDropdown.options!"
+                [optionLabel]="'name'"
+              />
+            </ng-container>
+
+            <!-- case checkbox -->
+            <ng-container *ngIf="dynamicIconForm.isNumber === null && dynamicIconForm.isCurrency === null && dynamicIconForm.isDecimal === null && dynamicIconForm.isTextarea === null && dynamicIconForm.isDropdown === null && dynamicIconForm.isCheckbox && dynamicIconForm.isRadio === null">
+              <ng-container *ngFor="let option of dynamicIconForm.isCheckbox.options">
+                <!-- when click it gets [value] -->
+                <p-checkbox [inputId]="option.key" [value]="option" [name]="dynamicIconForm.formControlName!"
+                            [formControlName]="dynamicIconForm.formControlName!"/>
+                <label [for]="option.key">{{ option.name }}</label>
+              </ng-container>
+            </ng-container>
+
+
+            <!-- case radio -->
+            <ng-container  *ngIf="dynamicIconForm.isNumber === null && dynamicIconForm.isCurrency === null && dynamicIconForm.isDecimal === null && dynamicIconForm.isTextarea === null && dynamicIconForm.isDropdown === null && dynamicIconForm.isCheckbox === null && dynamicIconForm.isRadio">
+              <ng-container *ngFor="let option of dynamicIconForm.isRadio.options">
+                <p-radio-button [inputId]="option.key" [value]="option" [formControlName]="dynamicIconForm.formControlName!"/>
+                <label [for]="option.key">{{ option.name }}</label>
+              </ng-container>
+            </ng-container>
+
+          </ng-container>
+          <!-- **************** input **************** -->
+
+        </p-inputgroup>
+
+      </ng-container>
+    </div>
+
+    <div class="field-column">
+      <p-button label="Submit" (onClick)="getSubmitEventFormGroup()"/>
+      <p-button label="Clear" (onClick)="getClearEventFormGroup()"/>
+    </div>
+
+  </div>
+</p-card>
