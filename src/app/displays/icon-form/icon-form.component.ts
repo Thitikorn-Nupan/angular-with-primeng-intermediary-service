@@ -26,6 +26,7 @@ export class IconFormComponent {
     this.formGroup = this.demoDynamicIconForm.formGroup
   }
 
+  // very importance for working this.formGroup on this child component
   public setInitialFormGroup($event: FormGroup) {
     this.formGroup = $event;
   }

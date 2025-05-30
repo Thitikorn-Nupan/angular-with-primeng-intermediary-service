@@ -10,8 +10,8 @@ import {DataTreeTable} from "../../models/tree-table/data-tree-table";
   styleUrl: './dynamic-tree-table.component.css'
 })
 export class DynamicTreeTableComponent implements OnInit {
-
-  protected data!: DataTreeTable<any>[] // data for map api to p tree table
+  @Input()
+  public data!: DataTreeTable<any>[] // data for map api to p tree table
   @Input()
   public tableTitle!: string;
   @Input()
@@ -30,19 +30,19 @@ export class DynamicTreeTableComponent implements OnInit {
   public editEvent: EventEmitter<any> = new EventEmitter();
   @Output()
   public removeEvent: EventEmitter<any> = new EventEmitter();
-
+  @Output()
+  public getData: EventEmitter<DataTreeTable<any>[]> = new EventEmitter();
 
   constructor() {
-    this.data = []
+    // this.data = []
   }
 
   ngOnInit(): void {
-    this.loadHeaderColumns(this.model[0].data)
-    this.prepareData(this.model)
+    this.getData.emit(this.data)
   }
 
   public prepareData(model: { data: any, subData: any[] | null } []) {
-    this.convertModelToDataTreeTable(model)
+    // this.convertModelToDataTreeTable(model)
   }
 
   private loadHeaderColumns(object: any): void {

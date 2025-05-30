@@ -1,6 +1,8 @@
 import {Component, ViewChild} from '@angular/core';
 import {DynamicTreeTableComponent} from "../../components/dynamic-tree-table/dynamic-tree-table.component";
 import {DemoDynamicTreeTable} from "../../services/demo-dynamic-components-service";
+import {DataTreeTable} from "../../models/tree-table/data-tree-table";
+import {HeaderColumn} from "../../models/tree-table/header-column";
 
 @Component({
   selector: 'tree-table',
@@ -9,15 +11,20 @@ import {DemoDynamicTreeTable} from "../../services/demo-dynamic-components-servi
   styleUrl: './tree-table.component.css'
 })
 export class TreeTableComponent {
-  @ViewChild(DynamicTreeTableComponent,{static : false})
-  private declare dynamicTreeTableComponent : DynamicTreeTableComponent // for reload data
+
+  // if you do this way maybe you didn't bind data
+  /*@ViewChild(DynamicTreeTableComponent,{static : false})
+  private declare dynamicTreeTableComponent : DynamicTreeTableComponent // for reload data*/
+
   public demoDynamicTreeTable: DemoDynamicTreeTable
+  public headerColumns : HeaderColumn[]
+  public data : DataTreeTable<any>[]
   public id : string
   public tableTitle : string
   public scrollable : boolean
   public paginator : boolean
   public rowsScope : number
-  public model : any[]
+  // public model : any[]
 
   constructor() {
     this.demoDynamicTreeTable = new DemoDynamicTreeTable()
@@ -26,28 +33,33 @@ export class TreeTableComponent {
     this.scrollable = this.demoDynamicTreeTable.scrollable
     this.paginator = this.demoDynamicTreeTable.paginator
     this.rowsScope = this.demoDynamicTreeTable.rowsScope
-    this.model = this.demoDynamicTreeTable.users
+    // this.model = this.demoDynamicTreeTable.users
+    this.data = this.demoDynamicTreeTable.data
+    this.headerColumns = this.demoDynamicTreeTable.headerColumns
+  }
+
+  // very importance for working this.data on this child component
+  protected setInitialData($event: DataTreeTable<any>[]) {
+    this.data = $event // bind data
   }
 
   public setEditEventTreeTable($even : any) {
     console.log('get edit')
-    this.model.forEach(( object :  {data : any , subData : any[]} ) => {
-      let data = object.data
-      if (data.id == $even.id) {
-        data.email = 'test edited'
-        data.password = 'test edited'
-        data.firstName = 'test edited'
-        data.lastName = 'test edited'
+    this.data.forEach((item) => {
+      let user = item.data
+      if (user.id === $even.id) {
+        user.email = 'test edited'
+        user.password = 'test edited'
+        user.firstName = 'test edited'
+        user.lastName = 'test edited'
       }
     })
-    // reload data
-    this.dynamicTreeTableComponent.prepareData(this.model)
   }
 
   public setRemoveEventTreeTable($even : any) {
     console.log('get remove')
-    this.model = this.model.filter(( object :  {data : any , subData : any[]} , index:number ) => object.data.id !== $even.id )
-    // reload data
-    this.dynamicTreeTableComponent.prepareData(this.model)
+    this.data = this.data.filter((item) => item.data.id !== $even.id)
   }
+
+
 }

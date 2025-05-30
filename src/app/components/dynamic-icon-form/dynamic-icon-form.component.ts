@@ -27,9 +27,10 @@ export class DynamicIconFormComponent implements OnInit {
   constructor() {
   }
 
+
   ngOnInit(): void {
     this.getFormGroup.emit(this.formGroup);
-    console.log('ngOnInit and emit formGroup', this.formGroup);
+    // console.log('ngOnInit and emit formGroup', this.formGroup);
   }
 
   // send only events back

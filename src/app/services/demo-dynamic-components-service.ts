@@ -5,9 +5,14 @@ import {File} from "../models/entities/file";
 import {Student} from "../models/entities/student";
 import {User} from "../models/entities/user";
 import {Product} from "../models/entities/product";
+import {UsefulService} from "./useful-service";
+import {HeaderColumn} from "../models/tree-table/header-column";
+import {DataTreeTable} from "../models/tree-table/data-tree-table";
+import {TreeNode} from "primeng/api";
+import {Client} from "../models/entities/client";
 
 
-// Demo pass dynamic field and initial form group
+// Demo pass dynamic
 export class DemoDynamicIconForm {
 
   public formGroup: FormGroup;
@@ -82,7 +87,7 @@ export class DemoDynamicIconForm {
 
 }
 
-
+// Demo pass dynamic
 export class DemoDynamicIconFormKeyFilter {
   public formGroup : FormGroup;
   public formTitle : string;
@@ -155,150 +160,219 @@ export class DemoDynamicIconFormKeyFilter {
   }
 }
 
-
+// Demo pass dynamic
 export class DemoDynamicTreeTable {
 
-  public files : {data : File, subData : File[] | null }[]
-  public students : {data : Student, subData : Student[] | null }[]
-  public users : {data : User , subData : User[] | null} []
-  public products : {data : Product , subData : Product[] | null} []
+  // assume this from api i have to convert to data as format as DataTreeTable
+  private files : {data : File, subData : File[] | null }[] = [
+    {
+      data :  new File("Applications","200mb","Folder") ,
+      subData : [
+        new File("Angular App","25mb","Folder"),
+        new File("React App","35mb","Folder"),
+        new File("Spring Boot App","75mb","Folder"),
+      ]
+    },
+    {
+      data :  new File("Cloud","20mb","Folder") ,
+      subData : [
+        new File("Angular App","25mb","Folder"),
+        new File("React App","35mb","Folder"),
+        new File("Spring Boot App","75mb","Folder"),
+      ]
+    },
+    {
+      data :  new File("Documents","72kb","Folder"),
+      subData : null
+    },
+    {
+      data :  new File("Word","1200mb","Folder"),
+      subData : null
+    },
+    {
+      data :  new File("Excel","950mb","Folder"),
+      subData : null
+    },
+    {
+      data :  new File("PDF","740mb","Folder") ,
+      subData : [
+        new File("Angular App","25mb","Folder"),
+        new File("React App","35mb","Folder"),
+      ]
+    },
+  ]
+  private students : {data : Student, subData : Student[] | null }[] = [
+    {
+      data : new Student('ef326394-66a6-47ef-903c-68eb101be665','alex slider','alex@hotmail.com',3),
+      subData : [
+        new Student('','alun slider','alun@hotmail.com',2),
+        new Student('','ajax slider','ajax@hotmail.com',1),
+      ]
+    },
+    {
+      data : new Student('65169241-762c-4a69-87eb-48a697420fe6','max runner','max@hotmail.com',4),
+      subData : null
+    },
+    {
+      data : new Student('445fd31a-4327-4c76-83c1-4a9dc5892202','slam runner','slam@hotmail.com',2),
+      subData : [
+        new Student('','jacky runner','jacky@hotmail.com',1),
+        new Student('','frok runner','frok@hotmail.com',1),
+        new Student('','austin runner','austin@hotmail.com',1),
+      ]
+    },
+    {
+      data : new Student('65169241-762c-4a69-87eb-41a697420fe1','ood slider','ood@hotmail.com',1),
+      subData : null
+    },
+    {
+      data : new Student('65169241-762c-4a61-82eb-41a697220fe1','kevin nash','kevin@hotmail.com',2),
+      subData : null
+    },
+    {
+      data : new Student('61169211-662c-4e61-82eb-41a697210fe1','max helloway','max@hotmail.com',3),
+      subData : null
+    },
+  ]
+  private users : {data : User , subData : User[] | null} []  = [
+    {
+      data : new User(1,'a@hotmail.com','12345','a','slider'),
+      subData : null
+    },
+    {
+      data : new User(2,'b@hotmail.com','12345','b','owner'),
+      subData : null
+    },
+    {
+      data : new User(3,'c@hotmail.com','12345','c','chap'),
+      subData : null
+    }
+    ,
+    {
+      data : new User(4,'k@hotmail.com','12345','k','kevin'),
+      subData : null
+    },
+    {
+      data : new User(5,'m@hotmail.com','12345','m','maxky'),
+      subData : null
+    },
+    {
+      data : new User(6,'i@hotmail.com','12345','i','ice'),
+      subData : null
+    }
+  ]
+  private products : {data : Product , subData : Product[] | null} []  = [
+    {
+      data : new Product('ef326394-66a6-47ef-903c-68eb101be661',1,'A/C Drink','/a-c-drink.png',250.00),
+      subData : null
+    },
+    {
+      data : new Product('ef326394-62a6-47ef-903c-68eb101be665',2,'PP Energy','/pp-energy.png',50.00),
+      subData : null
+    },
+    {
+      data : new Product('ef126394-66a6-47ef-903c-68eb101be665',3,'ABC Drink','/abc-drink.png',70.00),
+      subData : null
+    }
+    ,
+    {
+      data : new Product('ef426394-66a6-47ef-903c-68eb101be665',4,'Aj Shirt','/aj-shirt.png',150.00),
+      subData : null
+    },
+    {
+      data : new Product('ef326354-66a6-47ef-903c-68eb101be665',5,'CnC Shirt','/c-n-c-shirt.png',170.00),
+      subData : null
+    },
+    {
+      data : new Product('ef326774-66a6-47ef-903c-68eb101be665',6,'Li Energy','/li-energy.png',110.00),
+      subData : null
+    }
+  ]
+  // if you don't need to convert to data as format as DataTreeTable  your api should return like below
+  private clients : DataTreeTable<Client>[]  = [
+    {
+      data : new Client(1,'a@hotmail.com','12345','a','slider'),
+      children : []
+    },
+    {
+      data : new Client(2,'b@hotmail.com','12345','b','owner'),
+      children : []
+    },
+    {
+      data : new Client(3,'c@hotmail.com','12345','c','chap'),
+      children : [
+        {
+          data : new Client(3,'e@hotmail.com','12345','e','express')
+        },
+        {
+          data : new Client(3,'f@hotmail.com','12345','f','frank')
+        },
+        {
+          data : new Client(3,'g@hotmail.com','12345','g','gang')
+        }
+      ]
+    }
+    ,
+    {
+      data : new Client(4,'k@hotmail.com','12345','k','kevin'),
+      children : []
+    },
+    {
+      data : new Client(5,'m@hotmail.com','12345','m','maxky'),
+      children : []
+    },
+    {
+      data : new Client(6,'i@hotmail.com','12345','i','ice'),
+      children : []
+    }
+  ]
 
   public id : string
   public tableTitle : string
   public scrollable : boolean
   public paginator : boolean
   public rowsScope : number
+  public headerColumns : HeaderColumn[]
+  public data : DataTreeTable<any>[]
 
   constructor() {
-    // assume this from api i have to convert to data as format as DataTreeTable
-    this.files = [
-      {
-        data :  new File("Applications","200mb","Folder") ,
-        subData : [
-          new File("Angular App","25mb","Folder"),
-          new File("React App","35mb","Folder"),
-          new File("Spring Boot App","75mb","Folder"),
-        ]
-      },
-      {
-        data :  new File("Cloud","20mb","Folder") ,
-        subData : [
-          new File("Angular App","25mb","Folder"),
-          new File("React App","35mb","Folder"),
-          new File("Spring Boot App","75mb","Folder"),
-        ]
-      },
-      {
-        data :  new File("Documents","72kb","Folder"),
-        subData : null
-      },
-      {
-        data :  new File("Word","1200mb","Folder"),
-        subData : null
-      },
-      {
-        data :  new File("Excel","950mb","Folder"),
-        subData : null
-      },
-      {
-        data :  new File("PDF","740mb","Folder") ,
-        subData : [
-          new File("Angular App","25mb","Folder"),
-          new File("React App","35mb","Folder"),
-        ]
-      },
-    ]
-    this.students  = [
-      {
-        data : new Student('ef326394-66a6-47ef-903c-68eb101be665','alex slider','alex@hotmail.com',3),
-        subData : [
-          new Student('','alun slider','alun@hotmail.com',2),
-          new Student('','ajax slider','ajax@hotmail.com',1),
-        ]
-      },
-      {
-        data : new Student('65169241-762c-4a69-87eb-48a697420fe6','max runner','max@hotmail.com',4),
-        subData : null
-      },
-      {
-        data : new Student('445fd31a-4327-4c76-83c1-4a9dc5892202','slam runner','slam@hotmail.com',2),
-        subData : [
-          new Student('','jacky runner','jacky@hotmail.com',1),
-          new Student('','frok runner','frok@hotmail.com',1),
-          new Student('','austin runner','austin@hotmail.com',1),
-        ]
-      },
-      {
-        data : new Student('65169241-762c-4a69-87eb-41a697420fe1','ood slider','ood@hotmail.com',1),
-        subData : null
-      },
-      {
-        data : new Student('65169241-762c-4a61-82eb-41a697220fe1','kevin nash','kevin@hotmail.com',2),
-        subData : null
-      },
-      {
-        data : new Student('61169211-662c-4e61-82eb-41a697210fe1','max helloway','max@hotmail.com',3),
-        subData : null
-      },
-    ]
-    this.users = [
-      {
-        data : new User(1,'a@hotmail.com','12345','a','slider'),
-        subData : null
-      },
-      {
-        data : new User(2,'b@hotmail.com','12345','b','owner'),
-        subData : null
-      },
-      {
-        data : new User(3,'c@hotmail.com','12345','c','chap'),
-        subData : null
-      }
-      ,
-      {
-        data : new User(4,'k@hotmail.com','12345','k','kevin'),
-        subData : null
-      },
-      {
-        data : new User(5,'m@hotmail.com','12345','m','maxky'),
-        subData : null
-      },
-      {
-        data : new User(6,'i@hotmail.com','12345','i','ice'),
-        subData : null
-      }
-    ]
-    this.products = [
-      {
-        data : new Product('ef326394-66a6-47ef-903c-68eb101be661',1,'A/C Drink','/a-c-drink.png',250.00),
-        subData : null
-      },
-      {
-        data : new Product('ef326394-62a6-47ef-903c-68eb101be665',2,'PP Energy','/pp-energy.png',50.00),
-        subData : null
-      },
-      {
-        data : new Product('ef126394-66a6-47ef-903c-68eb101be665',3,'ABC Drink','/abc-drink.png',70.00),
-        subData : null
-      }
-      ,
-      {
-        data : new Product('ef426394-66a6-47ef-903c-68eb101be665',4,'Aj Shirt','/aj-shirt.png',150.00),
-        subData : null
-      },
-      {
-        data : new Product('ef326354-66a6-47ef-903c-68eb101be665',5,'CnC Shirt','/c-n-c-shirt.png',170.00),
-        subData : null
-      },
-      {
-        data : new Product('ef326774-66a6-47ef-903c-68eb101be665',6,'Li Energy','/li-energy.png',110.00),
-        subData : null
-      }
-    ]
-    this.tableTitle = 'Users Tree Table'
+    this.tableTitle = 'Students Tree Table'
     this.id = 'dynamic-tree-table'
     this.scrollable = true
     this.paginator = true
     this.rowsScope = 5
+    // convert api to format
+    this.data = this.convertModelToDataTreeTable(this.students)
+    this.headerColumns = this.convertObjectToHeaderColumns(this.data[0].data)
+    // api is correct format
+    /*
+      this.data = this.clients
+      this.headerColumns = this.convertObjectToHeaderColumns(this.data[0].data)
+    */
+  }
+
+  private convertObjectToHeaderColumns(object: any): HeaderColumn[]{
+   let headerColumns = []
+    const objectKeys = UsefulService.getObjectKeys(object)
+    for (let key of objectKeys) {
+     headerColumns.push({field: key, header: key.toUpperCase()})
+    }
+    headerColumns.push({field: 'action', header: 'action'.toUpperCase()})
+    return headerColumns
+  }
+
+  private convertModelToDataTreeTable(model: { data: any, subData: any[] | null } []) : DataTreeTable<any>[] {
+    let data : DataTreeTable<any>[]  = []
+    let subData: TreeNode<any>[] = []
+    for (let i = 0; i < model.length!; i++) {
+      if (model[i].subData?.length! > 0 && model[i].subData !== null) {
+        for (let data of model[i].subData!) {
+          subData.push({data: data})
+        }
+      }
+     data.push({data: model[i].data, children: subData})
+     subData = []
+    }
+    return data
   }
 }

@@ -5,7 +5,9 @@
     [scrollable]="scrollable"
     [paginator]="paginator"
     [rowsScope]="rowsScope"
-    [model]="model"
+    [data]="data"
+    [headerColumns]="headerColumns"
+    (getData)="setInitialData($event)"
     (editEvent)="setEditEventTreeTable($event)"
     (removeEvent)="setRemoveEventTreeTable($event)">
   </dynamic-tree-table>
