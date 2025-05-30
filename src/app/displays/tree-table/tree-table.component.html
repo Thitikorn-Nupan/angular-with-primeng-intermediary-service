@@ -1,14 +1,12 @@
-<ng-container *ngIf="true">
-  <dynamic-tree-table
-    [tableTitle]="tableTitle"
-    [id]="id"
-    [scrollable]="scrollable"
-    [paginator]="paginator"
-    [rowsScope]="rowsScope"
-    [data]="data"
-    [headerColumns]="headerColumns"
-    (getData)="setInitialData($event)"
-    (editEvent)="setEditEventTreeTable($event)"
-    (removeEvent)="setRemoveEventTreeTable($event)">
-  </dynamic-tree-table>
-</ng-container>
+<dynamic-tree-table
+  [tableTitle]="tableTitle"
+  [id]="id"
+  [scrollable]="scrollable"
+  [paginator]="paginator"
+  [rowsScope]="rowsScope"
+  [data]="data"
+  [headerColumns]="headerColumns"
+  (getData)="setInitialData($event)"
+  (editEvent)="setEditEventTreeTable($event)"
+  (removeEvent)="setRemoveEventTreeTable($event)">
+</dynamic-tree-table>

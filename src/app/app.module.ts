@@ -27,6 +27,9 @@ import {TreeTableModule} from "primeng/treetable";
 import { TreeTableComponent } from './displays/tree-table/tree-table.component';
 import { IconFormComponent } from './displays/icon-form/icon-form.component';
 import { IconFormKeyFilterComponent } from './displays/icon-form-keyfilter/icon-form-key-filter.component';
+import { DynamicDialogConfirmComponent } from './components/dynamic-dialog-confirm/dynamic-dialog-confirm.component';
+import {Dialog} from "primeng/dialog";
+import {DialogConfirmComponent} from "./displays/dialog-confirm/dialog-confirm.component";
 
 @NgModule({
   declarations: [
@@ -37,6 +40,8 @@ import { IconFormKeyFilterComponent } from './displays/icon-form-keyfilter/icon-
     TreeTableComponent,
     IconFormComponent,
     IconFormKeyFilterComponent,
+    DynamicDialogConfirmComponent,
+    DialogConfirmComponent,
   ],
   imports: [
     BrowserModule,
@@ -56,7 +61,8 @@ import { IconFormKeyFilterComponent } from './displays/icon-form-keyfilter/icon-
     RadioButton,
     Message,
     KeyFilter,
-    TreeTableModule
+    TreeTableModule,
+    Dialog
   ],
   providers: [
     provideAnimationsAsync(),

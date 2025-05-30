@@ -5,7 +5,7 @@ import {DataTreeTable} from "../../models/tree-table/data-tree-table";
 import {HeaderColumn} from "../../models/tree-table/header-column";
 
 @Component({
-  selector: 'tree-table',
+  selector: 'display-tree-table',
   standalone: false,
   templateUrl: './tree-table.component.html',
   styleUrl: './tree-table.component.css'

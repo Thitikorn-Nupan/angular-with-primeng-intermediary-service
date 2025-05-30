@@ -5,7 +5,7 @@ import {DynamicIconFormKeyFilter} from "../../models/icon-form-keyfilter/dynamic
 import {UsefulService} from "../../services/useful-service";
 
 @Component({
-  selector: 'icon-form-key-filter',
+  selector: 'display-icon-form-key-filter',
   standalone: false,
   templateUrl: './icon-form-key-filter.component.html',
   styleUrl: './icon-form-key-filter.component.css'

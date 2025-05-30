@@ -10,6 +10,9 @@ import {HeaderColumn} from "../models/tree-table/header-column";
 import {DataTreeTable} from "../models/tree-table/data-tree-table";
 import {TreeNode} from "primeng/api";
 import {Client} from "../models/entities/client";
+import {Software} from "../models/entities/software";
+import {Input} from "@angular/core";
+import {DynamicDialogConfirm} from "../models/dialog-confirm/dynamic-dialog-confirm";
 
 
 // Demo pass dynamic
@@ -237,7 +240,10 @@ export class DemoDynamicTreeTable {
   private users : {data : User , subData : User[] | null} []  = [
     {
       data : new User(1,'a@hotmail.com','12345','a','slider'),
-      subData : null
+      subData : [
+        new User(null,'a@hotmail.com','32134','a','slider'),
+        new User(null,'a@hotmail.com','98712','a','slider')
+      ]
     },
     {
       data : new User(2,'b@hotmail.com','12345','b','owner'),
@@ -326,6 +332,47 @@ export class DemoDynamicTreeTable {
       children : []
     }
   ]
+  private software : DataTreeTable<Software>[]  = [
+    {
+      data : new Software("The Weather","1.5GB","Folder"),
+      children : []
+    },
+    {
+      data : new Software("Car Shop","3.1GB","Folder"),
+      children : []
+    },
+    {
+      data : new Software("Gadgets House","1GB","Folder"),
+      children : [
+        {
+          data : new Software("Gadgets House","800MB","Folder")
+        },
+        {
+          data : new Software("Gadgets House","600MB","Folder")
+        }
+      ]
+    },
+    {
+      data : new Software("Books Shop","8GB","Folder"),
+      children : []
+    },
+    {
+      data : new Software("Podcast House","10GB","Folder"),
+      children : [
+        {
+          data : new Software("Podcast House","9GB","Folder"),
+          children : [
+            {
+              data : new Software("Podcast & JJ House","9GB","Folder"),
+            },
+            {
+              data : new Software("Podcast with me","9GB","Folder"),
+            },
+          ] // end children
+        }
+      ]
+    }
+  ]
 
   public id : string
   public tableTitle : string
@@ -336,19 +383,19 @@ export class DemoDynamicTreeTable {
   public data : DataTreeTable<any>[]
 
   constructor() {
-    this.tableTitle = 'Students Tree Table'
+    this.tableTitle = 'Users Tree Table'
     this.id = 'dynamic-tree-table'
     this.scrollable = true
     this.paginator = true
     this.rowsScope = 5
     // convert api to format
-    this.data = this.convertModelToDataTreeTable(this.students)
+    this.data = this.convertModelToDataTreeTable(this.users)
     this.headerColumns = this.convertObjectToHeaderColumns(this.data[0].data)
-    // api is correct format
-    /*
-      this.data = this.clients
+     // api is correct format
+     /*
+      this.data = this.software
       this.headerColumns = this.convertObjectToHeaderColumns(this.data[0].data)
-    */
+     */
   }
 
   private convertObjectToHeaderColumns(object: any): HeaderColumn[]{
@@ -374,5 +421,54 @@ export class DemoDynamicTreeTable {
      subData = []
     }
     return data
+  }
+}
+
+
+export class DemoDynamicDialogConfirm {
+
+  public visible: boolean ;
+  public draggable: boolean ;
+  public resizable: boolean ;
+  public dynamicDialogConfirm :DynamicDialogConfirm
+
+  constructor() {
+
+    this.visible = true;
+    this.draggable = false;
+    this.resizable = false;
+
+    this.dynamicDialogConfirm = new DynamicDialogConfirm(
+      'pi pi-info-circle', // can use fortawesome
+      {
+        'color': '#14c389',
+        'font-size': '1.3rem'
+      },
+      'confirm',
+      'Confirm submit',
+      'Are you sure to submit?'
+    )
+
+    /*this.dynamicDialogConfirm = new DynamicDialogConfirm(
+      'pi pi-exclamation-triangle',
+      {
+        'color': '#d8a704',
+        'font-size': '1.3rem'
+      },
+      'warn',
+      'Warning invalid path',
+      'Please access another path'
+      )*/
+
+    /*this.dynamicDialogConfirm = new DynamicDialogConfirm(
+      'pi pi-minus-circle',
+      {
+        'color': '#f80237',
+        'font-size': '1.3rem'
+      },
+      'error',
+      'Error message',
+      'You are not admin!'
+    )*/
   }
 }

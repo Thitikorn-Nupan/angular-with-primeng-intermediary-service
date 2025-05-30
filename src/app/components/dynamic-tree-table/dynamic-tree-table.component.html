@@ -32,8 +32,8 @@
             {{ rowData[col.field] }} <!-- as data each column -->
             <ng-container *ngIf="last">
               <!-- if current colum.filed is 'action' key add this container -->
-              <p-button icon="pi pi-wrench" rounded="false" severity="warn" (onClick)="getEditEventTreeTable(rowData)"/>
-              <p-button icon="pi pi-minus" rounded="false" severity="danger" (onClick)="getRemoveEventTreeTable(rowData)"/>
+              <p-button icon="pi pi-wrench" rounded="false" severity="contrast" aria-label="edit" (onClick)="getEditEventTreeTable(rowData)"/>
+              <p-button icon="pi pi-minus" rounded="false" severity="contrast" aria-label="remove" (onClick)="getRemoveEventTreeTable(rowData)"/>
             </ng-container>
           </td>
         </ng-container>

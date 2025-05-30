@@ -1,5 +1,4 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
-import {UsefulService} from "../../services/useful-service";
 import {HeaderColumn} from "../../models/tree-table/header-column";
 import {DataTreeTable} from "../../models/tree-table/data-tree-table";
 
@@ -14,8 +13,8 @@ export class DynamicTreeTableComponent implements OnInit {
   public data!: DataTreeTable<any>[] // data for map api to p tree table
   @Input()
   public tableTitle!: string;
-  @Input()
-  public model!: { data: any, subData: any[] | null } [] // model for holding response from api
+  // @Input()
+  // public model!: { data: any, subData: any[] | null } []
   @Input()
   public headerColumns!: HeaderColumn[]
   @Input()
@@ -41,6 +40,7 @@ export class DynamicTreeTableComponent implements OnInit {
     this.getData.emit(this.data)
   }
 
+  /**
   public prepareData(model: { data: any, subData: any[] | null } []) {
     // this.convertModelToDataTreeTable(model)
   }
@@ -68,6 +68,7 @@ export class DynamicTreeTableComponent implements OnInit {
       subData = []
     }
   }
+  */
 
   protected getEditEventTreeTable(data: any) {
     this.editEvent.emit(data)

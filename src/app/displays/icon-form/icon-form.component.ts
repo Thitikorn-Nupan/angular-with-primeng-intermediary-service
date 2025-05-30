@@ -5,7 +5,7 @@ import {DynamicIconForm} from "../../models/icon-form/dynamic-icon-form";
 import {UsefulService} from "../../services/useful-service";
 
 @Component({
-  selector: 'icon-form',
+  selector: 'display-icon-form',
   standalone: false,
   templateUrl: './icon-form.component.html',
   styleUrl: './icon-form.component.css'
