@@ -16,7 +16,6 @@ export class DynamicIconFormKeyFilterComponent implements OnInit {
   public formTitle! : string;
   @Input()
   public dynamicIconFormsKeyFilter! : DynamicIconFormKeyFilter[];
-
   @Output()
   public submitEvent: EventEmitter<any> = new EventEmitter();
   @Output()
@@ -29,6 +28,9 @@ export class DynamicIconFormKeyFilterComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    for (let i = 0; i < this.dynamicIconFormsKeyFilter.length; i++) {
+      this.formGroup.addControl(this.dynamicIconFormsKeyFilter[i].formControlName!, this.dynamicIconFormsKeyFilter[i].formControl)
+    }
     this.getFormGroup.emit(this.formGroup);
     console.log('ngOnInit and emit formGroup', this.formGroup);
   }

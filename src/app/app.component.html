@@ -18,11 +18,25 @@
   </ng-container>
 
 
-  <ng-container *ngIf="true">
+  <ng-container *ngIf="false">
     <display-dialog-confirm>
     </display-dialog-confirm>
   </ng-container>
 
+
+  <!--
+    if you don't want to import a tag
+    you can use <div [name selector]> </div>
+    dynamic-popup-p-dialog map [dynamic-popup-p-dialog] at selector on DynamicPopupWithPDailogComponent
+  -->
+  <ng-container *ngIf="false">
+    <div display-dialog-key-filter></div>
+  </ng-container>
+
+
+  <!-- apply -->
+  <crud-students>
+  </crud-students>
 
 </div>
 

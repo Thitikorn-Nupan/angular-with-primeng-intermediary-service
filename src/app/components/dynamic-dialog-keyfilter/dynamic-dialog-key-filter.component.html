@@ -1,0 +1,33 @@
+<div > <!--class="card flex justify-center"-->
+  <!-- button for showing -->
+  <!--<p-button (click)="showDialog()" [label]="label"/>-->
+  <p-dialog [header]="formTitle"
+            [draggable]="draggable"
+            [modal]="true"
+            [(visible)]="visible"
+            [style]="{ width: '25rem' }"
+            [resizable]="resizable"
+            [closable]="true">
+    <ng-container  [formGroup]="formGroup">
+      <div class="field-row">
+        <ng-container  *ngFor="let dialogKeyFilter of dynamicDialogKeyFilters">
+          <div class="field-column"> <!-- flex items-center gap-4 mb-4 -->
+            <label [for]="dialogKeyFilter.id" class="font-semibold w-24">{{dialogKeyFilter.label}}</label>
+            <!-- if you can't bind some attr of html tag try wrapping by [()] -->
+            <input pInputText
+                   [formControlName]="dialogKeyFilter.formControlName!"
+                   [id]="dialogKeyFilter.id"
+                   class="flex-auto" autocomplete="off"
+                   [placeholder]="dialogKeyFilter.placeholder"
+                   [pKeyFilter]="dialogKeyFilter.pKeyFilter"
+                   [attr.type]="dialogKeyFilter.type"/>
+          </div>
+        </ng-container>
+      </div>
+    </ng-container>
+    <div class="field-column"> <!-- class="flex justify-end gap-2"-->
+      <p-button label="Save" severity="contrast" (onClick)="getSubmitEventFormGroup()" /> <!-- (click)="onSave()"-->
+      <p-button label="Clear" severity="contrast" (onClick)="getClearEventFormGroup()"/> <!-- (click)="onCancel()" -->
+    </div>
+  </p-dialog>
+</div>

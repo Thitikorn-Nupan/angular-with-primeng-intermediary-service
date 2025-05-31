@@ -1,0 +1,11 @@
+<dynamic-dialog-key-filter
+  [formGroup]="formGroup"
+  [formTitle]="formTitle"
+  [visible]="visible"
+  [draggable]="draggable"
+  [resizable]="resizable"
+  [dynamicDialogKeyFilters]="dynamicDialogKeyFilters"
+  (getFormGroup)="setInitialFormGroup($event)"
+  (submitEvent)="setSubmitEventFormGroup()"
+  (clearEvent)="setClearEventFormGroup()">
+</dynamic-dialog-key-filter>

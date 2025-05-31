@@ -30,6 +30,7 @@ export class DynamicIconFormKeyFilter {
   public isDropdown? : Dropdown | null
   public isCheckbox? : Checkbox | null
   public isRadio? : RadioButton | null
+  public isReadOnly: boolean = false
 
 
   constructor(icon: string | null,
@@ -53,6 +54,11 @@ export class DynamicIconFormKeyFilter {
 
   public setPlaceholder(value : string) {
     this.placeholder = value;
+    return this;
+  }
+
+  public setReadOnly(value : boolean) {
+    this.isReadOnly = value;
     return this;
   }
 
@@ -83,6 +89,11 @@ export class DynamicIconFormKeyFilter {
 
   public setTextarea(value: boolean) {
     this.isTextarea = value;
+    return this;
+  }
+
+  public setFormControl(value: FormControl) {
+    this.formControl = value;
     return this;
   }
 }

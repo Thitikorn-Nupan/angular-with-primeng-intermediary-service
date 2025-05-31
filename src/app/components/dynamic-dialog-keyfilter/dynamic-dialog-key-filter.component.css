@@ -1,0 +1,9 @@
+.field-row{
+  display: grid;
+  grid-gap: 5px;
+}
+.field-column {
+  display: flex;
+  grid-gap: 10px;
+  margin-top: 1rem;
+}

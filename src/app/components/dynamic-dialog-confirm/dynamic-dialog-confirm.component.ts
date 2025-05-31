@@ -8,6 +8,7 @@ import {DynamicDialogConfirm} from "../../models/dialog-confirm/dynamic-dialog-c
   styleUrl: './dynamic-dialog-confirm.component.css'
 })
 export class DynamicDialogConfirmComponent {
+
   @Input()
   public visible!: boolean ;
   @Input()
@@ -21,8 +22,7 @@ export class DynamicDialogConfirmComponent {
   @Output()
   public closeEvent: EventEmitter<any> = new EventEmitter();
 
-  constructor() {
-  }
+  constructor() {}
 
   protected getOkEventDialog() {
     this.okEvent.emit()
@@ -31,4 +31,5 @@ export class DynamicDialogConfirmComponent {
   protected getCloseEventDialog() {
     this.closeEvent.emit()
   }
+
 }

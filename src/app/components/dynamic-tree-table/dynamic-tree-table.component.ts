@@ -33,13 +33,16 @@ export class DynamicTreeTableComponent implements OnInit {
   public getData: EventEmitter<DataTreeTable<any>[]> = new EventEmitter();
 
   constructor() {
-    // this.data = []
   }
 
   ngOnInit(): void {
     this.getData.emit(this.data)
   }
 
+  public reloadData(data:DataTreeTable<any>[]): void {
+    this.data = data
+    console.log(this.data)
+  }
   /**
   public prepareData(model: { data: any, subData: any[] | null } []) {
     // this.convertModelToDataTreeTable(model)

@@ -11,10 +11,11 @@ import {UsefulService} from "../../services/useful-service";
   styleUrl: './icon-form.component.css'
 })
 export class IconFormComponent {
+
   private demoDynamicIconForm: DemoDynamicIconForm
-  public  formGroup : FormGroup;
-  public  formTitle: string;
-  public  dynamicIconForms: DynamicIconForm[];
+  public formGroup: FormGroup;
+  public formTitle: string;
+  public dynamicIconForms: DynamicIconForm[];
   // for testing
   public resultFormGroup = signal<any[]>([]);
   public displayResultFormGroup = false;
@@ -34,16 +35,18 @@ export class IconFormComponent {
   public setSubmitEventFormGroup() {
     console.log('get submit')
     if (this.formGroup.valid) {
-      const controlKeys : string[] = UsefulService.getControlsName(this.formGroup.controls)
-      let resultsSet: { severity : string , content : string }[] = []
+      const controlKeys: string[] = UsefulService.getControlsName(this.formGroup.controls)
+      let resultsSet: { severity: string, content: string }[] = []
       for (const controlKey of controlKeys) {
         // ternary operator multiple conditions
-        resultsSet.push({severity : 'secondary',content : `${controlKey} : ${
+        resultsSet.push({
+          severity: 'secondary', content: `${controlKey} : ${
             controlKey === 'map' ? UsefulService.convertObjectToJson(this.formGroup.get(controlKey)?.value) :
-              controlKey ==='skills' ? UsefulService.convertObjectToJson(this.formGroup.get(controlKey)?.value) :
-                controlKey ==='categories' ? UsefulService.convertObjectToJson(this.formGroup.get(controlKey)?.value) :
+              controlKey === 'skills' ? UsefulService.convertObjectToJson(this.formGroup.get(controlKey)?.value) :
+                controlKey === 'categories' ? UsefulService.convertObjectToJson(this.formGroup.get(controlKey)?.value) :
                   this.formGroup.get(controlKey)?.value
-          }`})
+          }`
+        })
       }
       this.displayResultFormGroup = true;
       this.resultFormGroup.set(resultsSet)

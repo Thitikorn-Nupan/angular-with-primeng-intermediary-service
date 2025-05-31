@@ -30,6 +30,9 @@ import { IconFormKeyFilterComponent } from './displays/icon-form-keyfilter/icon-
 import { DynamicDialogConfirmComponent } from './components/dynamic-dialog-confirm/dynamic-dialog-confirm.component';
 import {Dialog} from "primeng/dialog";
 import {DialogConfirmComponent} from "./displays/dialog-confirm/dialog-confirm.component";
+import { DynamicDialogKeyFilterComponent } from './components/dynamic-dialog-keyfilter/dynamic-dialog-key-filter.component';
+import { DialogKeyFilterComponent } from './displays/dialog-keyfilter/dialog-key-filter.component';
+import { CrudStudentsComponent } from './apply/crud-students/crud-students.component';
 
 @NgModule({
   declarations: [
@@ -42,6 +45,9 @@ import {DialogConfirmComponent} from "./displays/dialog-confirm/dialog-confirm.c
     IconFormKeyFilterComponent,
     DynamicDialogConfirmComponent,
     DialogConfirmComponent,
+    DynamicDialogKeyFilterComponent,
+    DialogKeyFilterComponent,
+    CrudStudentsComponent,
   ],
   imports: [
     BrowserModule,
