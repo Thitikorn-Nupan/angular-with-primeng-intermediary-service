@@ -1,0 +1,11 @@
+<dynamic-dialog-form
+  [formGroup]="formGroup"
+  [formTitle]="formTitle"
+  [visible]="visible"
+  [draggable]="draggable"
+  [resizable]="resizable"
+  [dynamicDialogForms]="dynamicDialogForms"
+  (getFormGroup)="setInitialFormGroup($event)"
+  (submitEvent)="setSubmitEventFormGroup()"
+  (clearEvent)="setClearEventFormGroup()">
+</dynamic-dialog-form>

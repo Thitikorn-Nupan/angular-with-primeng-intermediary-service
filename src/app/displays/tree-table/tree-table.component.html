@@ -1,0 +1,61 @@
+<!-- Default option -->
+<dynamic-tree-table
+  [tableTitle]="tableTitle"
+  [id]="id"
+  [scrollable]="scrollable"
+  [paginator]="paginator"
+  [rowsScope]="rowsScope"
+  [data]="data"
+  [headerColumns]="headerColumns"
+  (getData)="setInitialData($event)"
+  (editEvent)="setEditEventTreeTable($event)"
+  (removeEvent)="setRemoveEventTreeTable($event)">
+</dynamic-tree-table>
+
+
+<!-- Optional option -->
+<dynamic-tree-table
+  [tableTitle]="tableTitle"
+  [id]="id"
+  [scrollable]="scrollable"
+  [paginator]="paginator"
+  [rowsScope]="rowsScope"
+  [data]="data"
+  [headerColumns]="headerColumns"
+  [optionalAction]="true"
+  [defaultOptionalAction]="false"
+  (getData)="setInitialData($event)"
+  (optionalEvent)="setOptionalEventTreeTable($event)">
+</dynamic-tree-table>
+
+
+<!-- Default option + optional option -->
+<dynamic-tree-table
+  [tableTitle]="tableTitle"
+  [id]="id"
+  [scrollable]="scrollable"
+  [paginator]="paginator"
+  [rowsScope]="rowsScope"
+  [data]="data"
+  [headerColumns]="headerColumns"
+  [optionalAction]="true"
+  (getData)="setInitialData($event)"
+  (editEvent)="setEditEventTreeTable($event)"
+  (removeEvent)="setRemoveEventTreeTable($event)"
+  (optionalEvent)="setOptionalEventTreeTable($event)">
+</dynamic-tree-table>
+
+
+<!-- No option -->
+<dynamic-tree-table
+  [tableTitle]="tableTitle"
+  [id]="id"
+  [scrollable]="scrollable"
+  [paginator]="paginator"
+  [rowsScope]="rowsScope"
+  [data]="data"
+  [headerColumns]="headerColumnsForShowing"
+  [optionalAction]="false"
+  [defaultOptionalAction]="false"
+  (getData)="setInitialData($event)">
+</dynamic-tree-table>
