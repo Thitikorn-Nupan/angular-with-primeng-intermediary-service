@@ -25,6 +25,7 @@ import {TreeTableComponent} from "./displays/tree-table/tree-table.component";
 import {DynamicDialogFormComponent} from "./components/dynamic-dialog-form/dynamic-dialog-form.component";
 import {DialogModule} from "primeng/dialog";
 import {DialogFormComponent} from "./displays/dialog-form/dialog-form.component";
+import {FloatLabelModule} from "primeng/floatlabel";
 
 @NgModule({
   declarations: [
@@ -36,27 +37,28 @@ import {DialogFormComponent} from "./displays/dialog-form/dialog-form.component"
     IconFormComponent,
     TreeTableComponent,
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    TreeTableModule,
-    CardModule,
-    InputGroupModule,
-    ButtonDirective,
-    Ripple,
-    InputGroupAddonModule,
-    InputTextModule,
-    ReactiveFormsModule,
-    KeyFilterModule,
-    InputTextareaModule,
-    TreeSelectModule,
-    CheckboxModule,
-    RadioButtonModule,
-    InputMaskModule,
-    MessageModule,
-    DialogModule,
-    Button
-  ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        TreeTableModule,
+        CardModule,
+        InputGroupModule,
+        ButtonDirective,
+        Ripple,
+        InputGroupAddonModule,
+        InputTextModule,
+        ReactiveFormsModule,
+        KeyFilterModule,
+        InputTextareaModule,
+        TreeSelectModule,
+        CheckboxModule,
+        RadioButtonModule,
+        InputMaskModule,
+        MessageModule,
+        DialogModule,
+        Button,
+        FloatLabelModule
+    ],
   providers: [
     // for DialogModule & PSelect
     importProvidersFrom([BrowserAnimationsModule])

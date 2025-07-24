@@ -1,28 +1,29 @@
-<p-dialog [header]="formTitle"
+<!-- No dropdown , Checkbox , Radio -->
+<div class="card flex justify-content-center">
+  <p-dialog [header]="formTitle"
           [draggable]="draggable"
           [modal]="true"
           [(visible)]="visible"
-          [style]="{ width: '25rem' }"
+          [style]="{ width: '40rem' }"
           [resizable]="resizable"
           [closable]="true">
   <ng-container  [formGroup]="formGroup">
-    <div class="field-row">
       <ng-container  *ngFor="let dialogKeyFilter of dynamicDialogForms">
-        <div class="field-column"> <!-- flex items-center gap-4 mb-4 -->
-          <label [for]="dialogKeyFilter.id" class="font-semibold w-24">{{dialogKeyFilter.label}}</label>
+        <div class="flex align-items-center gap-3 mb-3"> <!-- flex items-center gap-4 mb-4 -->
+          <label [for]="dialogKeyFilter.id" class="p-text-secondary block w-2">{{dialogKeyFilter.label}}</label>
           <!-- if you can't bind some attr of html tag try wrapping by [()] -->
           <input pInputText
+                 class="flex-auto"
+                 autocomplete="off"
                  [formControlName]="dialogKeyFilter.formControlName!"
                  [id]="dialogKeyFilter.id"
-                 class="flex-auto" autocomplete="off"
                  [placeholder]="dialogKeyFilter.placeholder"
                  [pKeyFilter]="dialogKeyFilter.pKeyFilter"
                  [attr.type]="dialogKeyFilter.type"/>
         </div>
       </ng-container>
-    </div>
   </ng-container>
-  <div class="field-column"> <!-- class="flex justify-end gap-2"-->
+  <div class="flex justify-content-end gap-2"> <!-- class="flex justify-end gap-2"-->
     <button
       pButton
       pRipple
@@ -33,7 +34,8 @@
       pButton
       pRipple
       label="Clear"
-      class="p-button-secondary" (click)="getClearEventFormGroup()" >
+      class="p-button-secondary ml-2" (click)="getClearEventFormGroup()" >
     </button>
   </div>
 </p-dialog>
+</div>
