@@ -1,7 +1,7 @@
 import {importProvidersFrom, NgModule} from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
+import {BrowserModule} from '@angular/platform-browser';
+import {AppRoutingModule} from './app-routing.module';
+import {AppComponent} from './app.component';
 import {DynamicTreeTableComponent} from "./components/dynamic-tree-table/dynamic-tree-table.component";
 import {TreeTableModule} from "primeng/treetable";
 import {CardModule} from "primeng/card";
@@ -26,6 +26,8 @@ import {DynamicDialogFormComponent} from "./components/dynamic-dialog-form/dynam
 import {DialogModule} from "primeng/dialog";
 import {DialogFormComponent} from "./displays/dialog-form/dialog-form.component";
 import {FloatLabelModule} from "primeng/floatlabel";
+import {DynamicDialogConfirmComponent} from "./components/dynamic-dialog-confirm/dynamic-dialog-confirm.component";
+import {DialogConfirmComponent} from "./displays/dialog-confirm/dialog-confirm.component";
 
 @NgModule({
   declarations: [
@@ -33,36 +35,39 @@ import {FloatLabelModule} from "primeng/floatlabel";
     DynamicTreeTableComponent,
     DynamicIconFormComponent,
     DynamicDialogFormComponent,
+    DynamicDialogConfirmComponent,
     DialogFormComponent,
+    DialogConfirmComponent,
     IconFormComponent,
     TreeTableComponent,
   ],
-    imports: [
-        BrowserModule,
-        AppRoutingModule,
-        TreeTableModule,
-        CardModule,
-        InputGroupModule,
-        ButtonDirective,
-        Ripple,
-        InputGroupAddonModule,
-        InputTextModule,
-        ReactiveFormsModule,
-        KeyFilterModule,
-        InputTextareaModule,
-        TreeSelectModule,
-        CheckboxModule,
-        RadioButtonModule,
-        InputMaskModule,
-        MessageModule,
-        DialogModule,
-        Button,
-        FloatLabelModule
-    ],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    TreeTableModule,
+    CardModule,
+    InputGroupModule,
+    ButtonDirective,
+    Ripple,
+    InputGroupAddonModule,
+    InputTextModule,
+    ReactiveFormsModule,
+    KeyFilterModule,
+    InputTextareaModule,
+    TreeSelectModule,
+    CheckboxModule,
+    RadioButtonModule,
+    InputMaskModule,
+    MessageModule,
+    DialogModule,
+    Button,
+    FloatLabelModule
+  ],
   providers: [
     // for DialogModule & PSelect
     importProvidersFrom([BrowserAnimationsModule])
   ],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}

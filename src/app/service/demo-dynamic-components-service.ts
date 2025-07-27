@@ -11,6 +11,7 @@ import {HeaderColumn} from "../entities/header-column";
 import {UsefulService} from "./useful-service";
 import {TreeNode} from "primeng/api";
 import {DynamicDialogForm} from "../entities/dynamic-dialog-form";
+import {DynamicDialogConfirm} from "../entities/dynamic-dialog-confirm";
 // import {DynamicIconForm} from "../models/icon-form/dynamic-icon-form";
 // import {DynamicIconFormKeyFilter} from "../models/icon-form-keyfilter/dynamic-icon-form-keyfilter";
 // import {File} from "../models/entities/file";
@@ -649,7 +650,7 @@ export class DemoDynamicTreeTable {
 }
 
 // Demo pass dynamic
-/*export class DemoDynamicDialogConfirm {
+export class DemoDynamicDialogConfirm {
 
   public visible: boolean;
   public draggable: boolean;
@@ -662,42 +663,16 @@ export class DemoDynamicTreeTable {
     this.draggable = false;
     this.resizable = false;
 
-    this.dynamicDialogConfirm = new DynamicDialogConfirm(
-      'pi pi-info-circle', // can use fortawesome
-      {
-        'color': '#14c389',
-        'font-size': '1.3rem',
-        'padding-top': '15px'
-      },
-      'confirm',
-      'Confirm submit',
-      'Are you sure to submit?'
-    )
+    this.dynamicDialogConfirm = {
+      icon : 'pi pi-info-circle text-5xl',
+      titleDialog:'Are you sure to submit?',
+      content :'Please confirm to proceed.',
+      key:'confirm'
+    }
 
-    /!* this.dynamicDialogConfirm = new DynamicDialogConfirm(
-       'pi pi-exclamation-triangle',
-       {
-         'color': '#d8a704',
-         'font-size': '1.3rem'
-       },
-       'warn',
-       'Warning invalid path',
-       'Please access another path'
-       )
- *!/
-    /!*this.dynamicDialogConfirm = new DynamicDialogConfirm(
-      'pi pi-minus-circle',
-      {
-        'color': '#f80237',
-        'font-size': '1.3rem'
-      },
-      'error',
-      'Error message',
-      'You are not admin!'
-    )*!/
   }
 
-}*/
+}
 
 // Demo pass dynamic
 export class DemoDynamicDialogForm {

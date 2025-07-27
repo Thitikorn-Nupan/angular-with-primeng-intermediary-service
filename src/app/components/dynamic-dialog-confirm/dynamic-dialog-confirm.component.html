@@ -1,0 +1,38 @@
+<div class="card flex justify-center" > <!-- class="card flex justify-center" -->
+  <p-dialog [draggable]="draggable"
+            [modal]="true"
+            [(visible)]="visible"
+            [style]="{ width: '25rem' }"
+            [resizable]="resizable"
+            [closable]="false">
+    <ng-template pTemplate="headless" > <!-- #header importance -->
+      <div class="flex flex-column align-items-center p-5 surface-overlay border-round"><!-- class="grid"-->
+        <div class="border-circle bg-primary inline-flex justify-content-center align-items-center h-6rem w-6rem">
+          <i [class]="dynamicDialogConfirm.icon"></i>
+        </div>
+        <span class="font-bold text-2xl block mb-2 mt-4">
+               {{ dynamicDialogConfirm.titleDialog }}
+        </span>
+        <ng-container *ngIf="dynamicDialogConfirm.content">
+          <p>{{ dynamicDialogConfirm.content }}</p>
+        </ng-container>
+        <div class="flex justify-content-end gap-2"> <!-- class="flex justify-end gap-2"-->
+          <button
+            pButton
+            pRipple
+            label="Okay"
+            class="p-button-secondary" (click)="getOkEventDialog()" >
+          </button>
+          <ng-container *ngIf="dynamicDialogConfirm.key === 'confirm'">
+            <button
+              pButton
+              pRipple
+              label="Cancle"
+              class="p-button-secondary ml-2" (click)="getCloseEventDialog()" >
+            </button>
+          </ng-container>
+        </div>
+      </div>
+    </ng-template>
+  </p-dialog>
+</div>
