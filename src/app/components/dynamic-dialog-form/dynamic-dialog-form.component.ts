@@ -29,7 +29,6 @@ export class DynamicDialogFormComponent implements OnInit {
   public getFormGroup: EventEmitter<FormGroup> = new EventEmitter();
 
   constructor() {
-
   }
 
   ngOnInit(): void {
@@ -39,11 +38,11 @@ export class DynamicDialogFormComponent implements OnInit {
     this.getFormGroup.emit(this.formGroup);
   }
 
-  protected getSubmitEventFormGroup() {
+  protected getSubmitEventFormGroup() : void  {
     this.submitEvent?.emit();
   }
 
-  protected getClearEventFormGroup() {
+  protected getClearEventFormGroup() : void  {
     this.clearEvent?.emit();
   }
 

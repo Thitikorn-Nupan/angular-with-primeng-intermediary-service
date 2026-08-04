@@ -27,19 +27,19 @@ export class DialogFormComponent {
     this.draggable = this.demoDynamicDialogKeyFilter.draggable;
     this.resizable = this.demoDynamicDialogKeyFilter.resizable;
     this.dynamicDialogForms =this.demoDynamicDialogKeyFilter.dynamicDialogForms;
-
   }
 
   // very importance for working this.formGroup on this child component
-  public setInitialFormGroup($event: FormGroup) {
+  public setInitialFormGroup($event: FormGroup) : void {
     this.formGroup = $event;
   }
 
-  public setSubmitEventFormGroup() {
+  public setSubmitEventFormGroup() : void {
     console.log('get submit')
+    console.log(this.formGroup.value)
   }
 
-  public setClearEventFormGroup() {
+  public setClearEventFormGroup() : void {
     console.log('get clear')
     this.formGroup.reset()
   }

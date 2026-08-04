@@ -51,15 +51,16 @@ export class DynamicTreeTableComponent implements OnInit {
     this.data = data
   }
 
-  protected getEditEventTreeTable(data: any) {
+  protected getEditEventTreeTable(data: any): void {
     this.editEvent.emit(data)
   }
 
-  protected getRemoveEventTreeTable(data: any) {
+  protected getRemoveEventTreeTable(data: any): void {
     this.removeEvent.emit(data)
   }
 
-  protected getOptionalEventTreeTable(data: any) {
+  protected getOptionalEventTreeTable(data: any): void {
     this.optionalEvent.emit(data)
   }
+
 }

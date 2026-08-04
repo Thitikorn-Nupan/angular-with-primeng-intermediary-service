@@ -5,10 +5,9 @@ import {User} from "../entities/user";
 import {Student} from "../entities/student";
 import {File} from "../entities/file";
 import {DataTreeTable} from "../entities/data-tree-table";
-import { Client } from "../entities/client";
+import {Client} from "../entities/client";
 import {Software} from "../entities/software";
 import {HeaderColumn} from "../entities/header-column";
-import {UsefulService} from "./useful-service";
 import {TreeNode} from "primeng/api";
 import {DynamicDialogForm} from "../entities/dynamic-dialog-form";
 import {DynamicDialogConfirm} from "../entities/dynamic-dialog-confirm";
@@ -143,110 +142,110 @@ export class DemoDynamicIconForm {
 
 
     // ** ref on primeng.org/keyfilter
-    const cashFieldAsNumber : DynamicIconForm = {
-      icon : '$',
-      formControlName : 'cash',
-      formControl :  new FormControl(10, Validators.required),
-      id : 'cash',
-      isReadOnly : false,
-      isInputText : true,
-      isRadio : null,
-      isDropdown : null,
-      isCheckbox : null,
-      isTextarea : null,
-      pKeyFilter : 'int',  // int = only integer as number as 123
-      placeholder : null,
+    const cashFieldAsNumber: DynamicIconForm = {
+      icon: '$',
+      formControlName: 'cash',
+      formControl: new FormControl(10, Validators.required),
+      id: 'cash',
+      isReadOnly: false,
+      isInputText: true,
+      isRadio: null,
+      isDropdown: null,
+      isCheckbox: null,
+      isTextarea: null,
+      pKeyFilter: 'int',  // int = only integer as number as 123
+      placeholder: null,
 
     }
 
-    const usernameFieldAsString : DynamicIconForm = {
-      icon : 'Username',
-      formControlName : 'username',
-      formControl :  new FormControl(null, Validators.required),
-      id : 'username',
-      isReadOnly : false,
-      isInputText : true,
-      isRadio : null,
-      isDropdown : null,
-      isCheckbox : null,
-      isTextarea : null,
-      pKeyFilter : 'alpha' ,  // alpha = only char as abc... (without all sign and space)
-      placeholder : 'Username or nickname...'
+    const usernameFieldAsString: DynamicIconForm = {
+      icon: 'Username',
+      formControlName: 'username',
+      formControl: new FormControl(null, Validators.required),
+      id: 'username',
+      isReadOnly: false,
+      isInputText: true,
+      isRadio: null,
+      isDropdown: null,
+      isCheckbox: null,
+      isTextarea: null,
+      pKeyFilter: 'alpha',  // alpha = only char as abc... (without all sign and space)
+      placeholder: 'Username or nickname...'
     }
 
-    const messageFieldAsString : DynamicIconForm = {
-      icon : 'Message',
-      formControlName : 'message',
-      formControl :  new FormControl(null, Validators.required),
-      id : 'message',
-      isReadOnly : false,
-      isInputText : true,
-      isRadio : null,
-      isDropdown : null,
-      isCheckbox : null,
-      isTextarea : null,
-      pKeyFilter : null ,  // null = any char
-      placeholder : 'Message...'
+    const messageFieldAsString: DynamicIconForm = {
+      icon: 'Message',
+      formControlName: 'message',
+      formControl: new FormControl(null, Validators.required),
+      id: 'message',
+      isReadOnly: false,
+      isInputText: true,
+      isRadio: null,
+      isDropdown: null,
+      isCheckbox: null,
+      isTextarea: null,
+      pKeyFilter: null,  // null = any char
+      placeholder: 'Message...'
     }
 
-    const transferFieldAsFloat : DynamicIconForm = {
-      icon : 'pi pi-building-columns',
-      formControlName : 'transfer',
-      formControl :  new FormControl(null, Validators.required),
-      id : 'transfer',
-      isReadOnly : false,
+    const transferFieldAsFloat: DynamicIconForm = {
+      icon: 'pi pi-building-columns',
+      formControlName: 'transfer',
+      formControl: new FormControl(null, Validators.required),
+      id: 'transfer',
+      isReadOnly: false,
       isIconExist: true,
-      isInputText : true,
-      isRadio : null,
-      isDropdown : null,
-      isCheckbox : null,
-      isTextarea : null,
-      pKeyFilter : 'money' , // money = only decimal and comma as 1,000.00 or 1000 , 1000.00
-      placeholder : null
+      isInputText: true,
+      isRadio: null,
+      isDropdown: null,
+      isCheckbox: null,
+      isTextarea: null,
+      pKeyFilter: 'money', // money = only decimal and comma as 1,000.00 or 1000 , 1000.00
+      placeholder: null
     }
 
-    const ratingFieldAsDecimal : DynamicIconForm = {
-      icon : 'pi pi-star-fill',
-      formControlName : 'rating',
-      formControl :  new FormControl(null, Validators.required),
-      id : 'rating',
-      isReadOnly : false,
+    const ratingFieldAsDecimal: DynamicIconForm = {
+      icon: 'pi pi-star-fill',
+      formControlName: 'rating',
+      formControl: new FormControl(null, Validators.required),
+      id: 'rating',
+      isReadOnly: false,
       isIconExist: true,
-      isInputText : true,
-      isRadio : null,
-      isDropdown : null,
-      isCheckbox : null,
-      isTextarea : null,
-      pKeyFilter : 'num' , // ** num = only decimal and dot as 1000.00 or 1000
-      placeholder : '0.0'
+      isInputText: true,
+      isRadio: null,
+      isDropdown: null,
+      isCheckbox: null,
+      isTextarea: null,
+      pKeyFilter: 'num', // ** num = only decimal and dot as 1000.00 or 1000
+      placeholder: '0.0'
     }
 
-    const emailFieldAsStringAsEmail : DynamicIconForm = {
-      icon : '@',
-      formControlName : 'email',
-      formControl :  new FormControl(null, Validators.required),
-      id : 'email',
-      isReadOnly : false,
-      isInputText : true,
-      isRadio : null,
-      isDropdown : null,
-      isCheckbox : null,
-      isTextarea : null,
-      pKeyFilter : 'email' , // ** email = type email but more validate then default email
-      placeholder : 'xxx@hotmail.com'
+    const emailFieldAsStringAsEmail: DynamicIconForm = {
+      icon: '@',
+      formControlName: 'email',
+      formControl: new FormControl(null, Validators.required),
+      id: 'email',
+      isReadOnly: false,
+      isInputText: true,
+      isRadio: null,
+      isDropdown: null,
+      isCheckbox: null,
+      isTextarea: null,
+      pKeyFilter: 'email', // ** email = type email but more validate then default email
+      placeholder: 'xxx@hotmail.com'
     }
 
     // Dropdown buttons
-    const cityFieldAsDropdown : DynamicIconForm = {
-      icon : 'pi pi-map',
-      formControlName : 'map',
-      formControl :  new FormControl(null, Validators.required),
-      id : 'map',
-      isReadOnly : false,
+    const cityFieldAsDropdown: DynamicIconForm = {
+      icon: 'pi pi-map',
+      formControlName: 'map',
+      formControl: new FormControl(null, Validators.required),
+      id: 'map',
+      isReadOnly: false,
       isIconExist: true,
-      isInputText : null,
-      isRadio : null,
-      isDropdown : [
+      isInputText: null,
+      isRadio: null,
+      isDropdown: [
         {
           key: '0',
           label: 'Documents',
@@ -268,96 +267,96 @@ export class DemoDynamicIconForm {
           icon: 'pi pi-fw pi-home',
         }
       ],
-      isCheckbox : null,
-      isTextarea : null,
-      placeholder : 'Select one'
+      isCheckbox: null,
+      isTextarea: null,
+      placeholder: 'Select one'
     }
 
 
     // Checkbox buttons
-    const skillFieldAsCheckbox : DynamicIconForm = {
-      icon : null,
+    const skillFieldAsCheckbox: DynamicIconForm = {
+      icon: null,
       isIconExist: null,
-      formControlName : 'skills',
-      formControl :  new FormControl(null, Validators.required),
-      id : 'skills',
-      isReadOnly : false,
-      isInputText : null,
-      isRadio : null,
-      isDropdown : null,
-      isCheckbox : {
-        status : true,
-        options : skills
+      formControlName: 'skills',
+      formControl: new FormControl(null, Validators.required),
+      id: 'skills',
+      isReadOnly: false,
+      isInputText: null,
+      isRadio: null,
+      isDropdown: null,
+      isCheckbox: {
+        status: true,
+        options: skills
       },
-      isTextarea : null,
+      isTextarea: null,
     }
 
 
-    const addressFieldAsTextarea : DynamicIconForm = {
-      icon : 'Address',
+    const addressFieldAsTextarea: DynamicIconForm = {
+      icon: 'Address',
       isIconExist: null,
-      formControlName : 'address',
-      formControl :  new FormControl(null, Validators.required),
-      id : 'address',
-      isReadOnly : false,
-      isInputText : null,
-      isRadio : null,
-      isDropdown : null,
-      isCheckbox : null,
-      isTextarea : true,
+      formControlName: 'address',
+      formControl: new FormControl(null, Validators.required),
+      id: 'address',
+      isReadOnly: false,
+      isInputText: null,
+      isRadio: null,
+      isDropdown: null,
+      isCheckbox: null,
+      isTextarea: true,
       placeholder: '(Optional)'
     }
 
     // Radio buttons
-    const categoryFieldAsRadio : DynamicIconForm = {
-      icon : null,
+    const categoryFieldAsRadio: DynamicIconForm = {
+      icon: null,
       isIconExist: null,
-      formControlName : 'categories',
-      formControl :  new FormControl(null, Validators.required),
-      id : 'categories',
-      isReadOnly : false,
-      isInputText : null,
-      isRadio : {
+      formControlName: 'categories',
+      formControl: new FormControl(null, Validators.required),
+      id: 'categories',
+      isReadOnly: false,
+      isInputText: null,
+      isRadio: {
         status: true,
         options: categories
       },
-      isDropdown : null,
-      isCheckbox : null,
-      isTextarea : null,
+      isDropdown: null,
+      isCheckbox: null,
+      isTextarea: null,
       placeholder: null
     }
 
-    const weightFieldAsDecimal : DynamicIconForm = {
-      icon : 'pi pi-gauge',
+    const weightFieldAsDecimal: DynamicIconForm = {
+      icon: 'pi pi-gauge',
       isIconExist: true,
-      formControlName : 'weight',
-      formControl :  new FormControl(null, Validators.required),
-      id : 'weight',
-      isReadOnly : false,
-      isInputText : true,
-      isRadio : null,
-      isDropdown : null,
-      isCheckbox : null,
-      isTextarea : null,
-      pKeyFilter:'int',  // ** int = integer
+      formControlName: 'weight',
+      formControl: new FormControl(null, Validators.required),
+      id: 'weight',
+      isReadOnly: false,
+      isInputText: true,
+      isRadio: null,
+      isDropdown: null,
+      isCheckbox: null,
+      isTextarea: null,
+      pKeyFilter: 'int',  // ** int = integer
       placeholder: '0',
     }
 
 
     // Date
-    const birthdayFieldAsDate : DynamicIconForm = {
-      icon : 'pi pi-calendar',
+    const birthdayFieldAsDate: DynamicIconForm = {
+      icon: 'pi pi-calendar',
       isIconExist: true,
-      formControlName : 'birthday',
-      formControl :  new FormControl(null, Validators.required),
-      id : 'birthday',
-      isReadOnly : false,
-      isInputText : null,
-      isRadio : null,
-      isDropdown : null,
-      isCheckbox : null,
-      isTextarea : null,
-      isDate:true
+      formControlName: 'birthday',
+      formControl: new FormControl(null, Validators.required),
+      id: 'birthday',
+      isReadOnly: false,
+      isInputText: null,
+      isRadio: null,
+      isDropdown: null,
+      isCheckbox: null,
+      isTextarea: null,
+      isDate: true
     }
 
     this.dynamicIconForms.push(cashFieldAsNumber)
@@ -380,6 +379,7 @@ export class DemoDynamicIconForm {
 
   }
 }
+
 // Demo pass dynamic
 
 // Demo pass dynamic
@@ -460,8 +460,8 @@ export class DemoDynamicTreeTable {
     {
       data: new User(1, 'a@hotmail.com', '12345', 'a', 'slider'),
       subData: [
-        new User(null, 'a@hotmail.com', '32134', 'a', 'slider'),
-        new User(null, 'a@hotmail.com', '98712', 'a', 'slider')
+        new User(101, 'a@hotmail.com', '32134', 'a', 'slider'),
+        new User(102, 'a@hotmail.com', '98712', 'a', 'slider')
       ]
     },
     {
@@ -609,7 +609,7 @@ export class DemoDynamicTreeTable {
     this.rowsScope = 5
     // convert api to format
     this.data = this.convertModelToDataTreeTable(this.users)
-    this.headerColumns = this.convertObjectToHeaderColumns(this.data[0].data,[])
+    this.headerColumns = this.convertObjectToHeaderColumns(this.data[0].data, [])
     // api is correct format
     /*
      this.data = this.software
@@ -645,6 +645,7 @@ export class DemoDynamicTreeTable {
       data.push({data: model[i].data, children: subData})
       subData = []
     }
+    console.log(data)
     return data
   }
 }
@@ -664,10 +665,10 @@ export class DemoDynamicDialogConfirm {
     this.resizable = false;
 
     this.dynamicDialogConfirm = {
-      icon : 'pi pi-info-circle text-5xl',
-      titleDialog:'Are you sure to submit?',
-      content :'Please confirm to proceed.',
-      key:'confirm'
+      icon: 'pi pi-info-circle text-5xl',
+      titleDialog: 'Are you sure to submit?',
+      content: 'Please confirm to proceed.',
+      key: 'confirm'
     }
 
   }
@@ -676,12 +677,12 @@ export class DemoDynamicDialogConfirm {
 
 // Demo pass dynamic
 export class DemoDynamicDialogForm {
-  public formGroup! : FormGroup;
-  public formTitle! : string;
-  public visible!: boolean ;
-  public draggable!: boolean ;
-  public resizable!: boolean ;
-  public dynamicDialogForms! :DynamicDialogForm[]
+  public formGroup!: FormGroup;
+  public formTitle!: string;
+  public visible!: boolean;
+  public draggable!: boolean;
+  public resizable!: boolean;
+  public dynamicDialogForms!: DynamicDialogForm[]
 
   constructor() {
     this.formGroup = new FormGroup({})
@@ -690,77 +691,77 @@ export class DemoDynamicDialogForm {
     this.draggable = false;
     this.resizable = false;
     // ** ref on primeng.org/keyfilter
-    const username : DynamicDialogForm = {
-      id : 'username',
-      label : 'Username',
-      formControlName : 'username',
-      formControl : new FormControl(null,Validators.required),
-      placeholder : 'Username...',
-      pKeyFilter : 'alpha', // alpha = only char as abc... (without all sign and space)
+    const username: DynamicDialogForm = {
+      id: 'username',
+      label: 'Username',
+      formControlName: 'username',
+      formControl: new FormControl(null, Validators.required),
+      placeholder: 'Username...',
+      pKeyFilter: 'alpha', // alpha = only char as abc... (without all sign and space)
       // type : 'text'
     }
 
-    const password : DynamicDialogForm = {
-      id : 'password',
-      label : 'Password',
-      formControlName : 'password',
-      formControl : new FormControl(null,Validators.required),
-      placeholder : 'Password...',
-      pKeyFilter : null, // null = any char
-      type : 'password'
+    const password: DynamicDialogForm = {
+      id: 'password',
+      label: 'Password',
+      formControlName: 'password',
+      formControl: new FormControl(null, Validators.required),
+      placeholder: 'Password...',
+      pKeyFilter: null, // null = any char
+      type: 'password'
     }
 
-    const email : DynamicDialogForm = {
-      id : 'email',
-      label : 'Email',
-      formControlName : 'email',
-      formControl : new FormControl(null,Validators.required),
-      placeholder : 'Email...',
-      pKeyFilter : 'email',  // email = type email but more validate then default email
+    const email: DynamicDialogForm = {
+      id: 'email',
+      label: 'Email',
+      formControlName: 'email',
+      formControl: new FormControl(null, Validators.required),
+      placeholder: 'Email...',
+      pKeyFilter: 'email',  // email = type email but more validate then default email
       // type : 'email'
     }
 
-    const age : DynamicDialogForm = {
-      id : 'age',
-      label : 'Age',
-      formControlName : 'age',
-      formControl : new FormControl(null,Validators.required),
-      placeholder : 'Age...' ,
-      pKeyFilter : 'int', // int = only integer as number as 123
+    const age: DynamicDialogForm = {
+      id: 'age',
+      label: 'Age',
+      formControlName: 'age',
+      formControl: new FormControl(null, Validators.required),
+      placeholder: 'Age...',
+      pKeyFilter: 'int', // int = only integer as number as 123
       // type : 'email'
     }
 
-    const donate : DynamicDialogForm = {
-      id : 'donate',
-      label : 'Donate',
-      formControlName : 'age',
-      formControl : new FormControl(null,Validators.required),
-      placeholder : 'Donate...',
-      pKeyFilter : 'money', // money = only decimal and comma as 1,000.00 or 1000 , 1000.00
+    const donate: DynamicDialogForm = {
+      id: 'donate',
+      label: 'Donate',
+      formControlName: 'age',
+      formControl: new FormControl(null, Validators.required),
+      placeholder: 'Donate...',
+      pKeyFilter: 'money', // money = only decimal and comma as 1,000.00 or 1000 , 1000.00
       // type : 'email'
     }
 
-    const score : DynamicDialogForm = {
-      id : 'score',
-      label : 'Score',
-      formControlName : 'score',
-      formControl : new FormControl(null,Validators.required),
-      placeholder : 'Score...',
-      pKeyFilter : 'num', // num = only decimal and dot as 1000.00 or 1000
+    const score: DynamicDialogForm = {
+      id: 'score',
+      label: 'Score',
+      formControlName: 'score',
+      formControl: new FormControl(null, Validators.required),
+      placeholder: 'Score...',
+      pKeyFilter: 'num', // num = only decimal and dot as 1000.00 or 1000
       // type : 'email'
     }
 
-    const birthday : DynamicDialogForm = {
-      id : 'birthday',
-      label : 'Birthday',
-      formControlName : 'birthday',
-      formControl : new FormControl(null,Validators.required),
+    const birthday: DynamicDialogForm = {
+      id: 'birthday',
+      label: 'Birthday',
+      formControlName: 'birthday',
+      formControl: new FormControl(null, Validators.required),
       // placeholder : 'Score...',
-      pKeyFilter : null, // num = only decimal and dot as 1000.00 or 1000
-      type : 'date'
+      pKeyFilter: null, // num = only decimal and dot as 1000.00 or 1000
+      type: 'date'
     }
 
-    this.dynamicDialogForms =[
+    this.dynamicDialogForms = [
       username,
       password,
       email,
@@ -769,7 +770,6 @@ export class DemoDynamicDialogForm {
       score,
       birthday
     ];
-
-
   }
+
 }

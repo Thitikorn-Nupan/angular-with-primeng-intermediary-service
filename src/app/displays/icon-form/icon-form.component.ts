@@ -28,11 +28,11 @@ export class IconFormComponent {
   }
 
   // very importance for working this.formGroup on this child component
-  public setInitialFormGroup($event: FormGroup) {
+  public setInitialFormGroup($event: FormGroup) : void {
     this.formGroup = $event;
   }
 
-  public setSubmitEventFormGroup() {
+  public setSubmitEventFormGroup() : void {
     // console.log(this.formGroup);
     if (this.formGroup.valid) {
       const controlKeys: string[] = UsefulService.getControlsName(this.formGroup.controls)
@@ -55,7 +55,7 @@ export class IconFormComponent {
     }
   }
 
-  public setClearEventFormGroup() {
+  public setClearEventFormGroup() : void {
     this.displayResultFormGroup = false;
     this.formGroup.reset()
   }

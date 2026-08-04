@@ -16,22 +16,22 @@ export class DialogConfirmComponent {
   public resizable: boolean;
   public dynamicDialogConfirm: DynamicDialogConfirm
 
-  constructor() {
+  constructor()  {
     this.demoDynamicDialogConfirm = new DemoDynamicDialogConfirm();
     this.dynamicDialogConfirm = this.demoDynamicDialogConfirm.dynamicDialogConfirm;
     this.visible = this.demoDynamicDialogConfirm.visible
     this.draggable = this.demoDynamicDialogConfirm.draggable;
     this.resizable = this.demoDynamicDialogConfirm.resizable;
-
   }
 
-  public setOkEventDialogConfirm() {
+  public setOkEventDialogConfirm() : void {
     console.log('get ok')
     this.visible = false
   }
 
-  public setCloseEventDialogConfirm() {
+  public setCloseEventDialogConfirm() : void {
     console.log('get close')
     this.visible = false
   }
+
 }

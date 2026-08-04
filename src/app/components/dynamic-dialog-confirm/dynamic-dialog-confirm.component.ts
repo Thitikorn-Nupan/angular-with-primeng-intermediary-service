@@ -24,11 +24,11 @@ export class DynamicDialogConfirmComponent {
 
   constructor() {}
 
-  protected getOkEventDialog() {
+  protected getOkEventDialog() : void {
     this.okEvent.emit()
   }
 
-  protected getCloseEventDialog() {
+  protected getCloseEventDialog()  : void {
     this.closeEvent.emit()
   }
 

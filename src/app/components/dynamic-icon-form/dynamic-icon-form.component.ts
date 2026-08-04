@@ -25,18 +25,18 @@ export class DynamicIconFormComponent implements OnInit {
   constructor() {
   }
 
-  ngOnInit(): void {
+  ngOnInit() : void {
     for (let i = 0; i < this.dynamicIconForms.length; i++) {
       this.formGroup.addControl(this.dynamicIconForms[i].formControlName!, this.dynamicIconForms[i].formControl)
     }
     this.getFormGroup.emit(this.formGroup);
   }
 
-  protected getSubmitEventFormGroup() {
+  protected getSubmitEventFormGroup() : void {
     this.submitEvent?.emit();
   }
 
-  protected getClearEventFormGroup() {
+  protected getClearEventFormGroup() : void {
     this.clearEvent?.emit();
   }
 
