@@ -460,8 +460,8 @@ export class DemoDynamicTreeTable {
     {
       data: new User(1, 'a@hotmail.com', '12345', 'a', 'slider'),
       subData: [
-        new User(101, 'a@hotmail.com', '32134', 'a', 'slider'),
-        new User(102, 'a@hotmail.com', '98712', 'a', 'slider')
+        new User(1, 'a_c@hotmail.com', '32134', 'a', 'slider'),
+        new User(2, 'a_d@hotmail.com', '98712', 'a', 'slider')
       ]
     },
     {

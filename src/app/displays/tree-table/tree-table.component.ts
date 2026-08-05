@@ -2,6 +2,7 @@ import {Component} from '@angular/core';
 import {DemoDynamicTreeTable} from "../../service/demo-dynamic-components-service";
 import {DataTreeTable} from "../../entities/data-tree-table";
 import {HeaderColumn} from "../../entities/header-column";
+import {User} from "../../entities/user";
 
 @Component({
   selector: 'display-tree-table',
@@ -69,19 +70,28 @@ export class TreeTableComponent {
   public setRemoveEventTreeTable($even: any): void {
     console.log('get remove')
     const id = $even.id
+    const email = $even.email
+    const userChild : { id : number; email: string } = {
+      id: 0,
+      email: '',
+    }
     // delete children if exists
     this.data = this.data.filter((item) => {
       if (item.children && item.children.length > 0) {
         item.children.filter(child => {
-          if (child.data.id === id) {
+          if (child.data.id === id && child.data.email === email) {
             item.children = item.children.filter(child => child.data.id !== id)
+            userChild.id = child.data.id
+            userChild.email = child.data.email
           }
         })
       }
       return item
     })
     // delete parent
-    this.data = this.data.filter((item) => item.data.id !== id)
+    if (userChild.email !== email) { // child email !== parent email
+      this.data = this.data.filter((item) => item.data.id !== id && item.data.email !== email )
+    }
   }
 
   protected setOptionalEventTreeTable($event: any): void {
